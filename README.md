@@ -1,6 +1,18 @@
 # amplify-wb-protein-schematic
+
 Repo to drive AWS Amplify builds for the protein browser
 
-At the moment, this repo is updated by running the Dockerfile in
-WormBase/website-genome-browsers/protein_schematic and getting
-the tar file that results
+Updating for new releases is generally very easy if you don't need to update
+the underlying JBrowse 1 software (which you probably don't). All that should
+be needed is something like:
+
+```
+cd amplify-wb-prot-schematic/data
+git checkout staging
+perl -pi -e 's/WS292/WS293/' */trackList.json
+git add */trackList.json
+git commit
+git push
+```
+
+of course, updated for previous and new release versions.
